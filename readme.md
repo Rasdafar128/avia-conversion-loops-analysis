@@ -1,3 +1,58 @@
+# Flight Ticket Conversion Analysis: The "Loops" Effect and User Fatigue
+
+Project by the **"Team of Dreams"** (Команда мечтЫ) as part of the **DANO 2025** Data Analysis Olympiad (Dataset No. 8). The project was awarded the maximum score.
+
+## 📌 About the Project
+The goal of this study is to examine how the complexity of the booking process and user returns to previous stages ("loops") affect the probability of purchase.
+
+**Data:** 38,500+ sessions, 1,900+ unique clients over 9 months of 2025.
+
+## 🔍 Hypothesis and Mechanism
+Мы hypothesized a non-linear relationship between the number of "loops" (returns to Search/Results/Offer screens) and conversion:
+1. **Growth:** A small number of loops (comparing options) increases the probability of purchase.
+2. **Inflection Point (10 loops):** After reaching a certain threshold, "user fatigue" or decision paralysis sets in.
+3. **Decline:** An excessive number of actions leads to a sharp decrease in conversion.
+
+**Complex bookings** (luggage, multiple tickets) require a higher number of loops, which indirectly reduces their conversion rate.
+
+## 🛠 Methodology
+To ensure mathematical rigor, we utilized:
+*   **Cluster-robust Standard Errors:** Accounting for intra-cluster correlation by `client_id` (since sessions from the same user are dependent).
+*   **Piecewise Logistic Regression:** A piecewise linear model to formally verify the inflection point.
+*   **Wald Test & LR Test:** To confirm the statistical significance of the trend sign change.
+*   **Robust Linear Regression:** To compare the average metrics of "complex" and "simple" sessions.
+
+## 📈 Key Results
+*   **Breaking Point:** 10 loops. Up to this point, each loop significantly increases the probability of purchase; beyond it, the probability significantly decreases (p-value < 0.05).
+*   **Coefficients:**
+    *   $\beta_1$ (up to 10 loops): `+0.49` (increase in log-odds)
+    *   $\beta_2$ (after 10 loops): `-0.66` (decrease in log-odds)
+*   **Complex Sessions:** On average, they have 0.55 more loops, making them more vulnerable to "fatigue."
+
+## 💡 Business Recommendations (Policy Implications)
+1. **Proactive Assistance:** Upon reaching 7-8 loops, offer the user a chat with an assistant or a "compare selected" feature.
+2. **UI/UX Optimization:** Display baggage costs on the search results screen to reduce the need to "drill down" into an offer and return.
+3. **Retargeting:** Use the number of loops as a feature in ML models to re-engage users who dropped off.
+
+## 📂 Repository Structure
+*   `notebooks/final_analysis.ipynb`: Full cycle of EDA, preprocessing, and modeling.
+*   `presentation/Avia_Dano.pdf`: Final project presentation.
+*   `results/`: Model robustness check tables by RFM segments.
+*   `data/`: Initial raw data on T-Avia client sessions.
+
+## 👥 Authors (Team "Team of Dreams")
+
+*   **[Mikhail Vershinin]** ([@Rasdafar128])
+*   **[Alexey Kolegov]** ([@reDKCLoDiS])
+*   **[Maria Gordeeva]** ([@heriqis777])
+*   **[Artem Gorokhov]** ([@gotheartem])
+*   **[Konstantin Bykov]** ([@dbindung])
+
+---
+*This project was completed as part of the final stage of the DANO 2025 olympiad.*
+
+
+
 # Анализ конверсии авиабилетов: Эффект «Петель» и усталости пользователя
 
 Проект команды **«Команда мечтЫ»** в рамках олимпиады по анализу данных **DANO 2025** (Датасет №8). Проект получил максимальный балл.
@@ -51,3 +106,5 @@
 
 ---
 *Проект выполнен в рамках финального этапа олимпиады DANO 2025.*
+
+
