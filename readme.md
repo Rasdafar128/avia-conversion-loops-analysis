@@ -8,7 +8,7 @@ The goal of this study is to examine how the complexity of the booking process a
 **Data:** 38,500+ sessions, 1,900+ unique clients over 9 months of 2025.
 
 ## 🔍 Hypothesis and Mechanism
-Мы hypothesized a non-linear relationship between the number of "loops" (returns to Search/Results/Offer screens) and conversion:
+We hypothesized a non-linear relationship between the number of "loops" (returns to Search/Results/Offer screens) and conversion:
 1. **Growth:** A small number of loops (comparing options) increases the probability of purchase.
 2. **Inflection Point (10 loops):** After reaching a certain threshold, "user fatigue" or decision paralysis sets in.
 3. **Decline:** An excessive number of actions leads to a sharp decrease in conversion.
